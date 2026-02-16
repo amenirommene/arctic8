@@ -15,6 +15,9 @@ export class DetailsSuggestionComponent {
   }
   ngOnInit(){
 console.log("je suis ngOnInit ");
+//this.id=this.ac.snapshot.params['id'];
+//this.ac.paramMap.subscribe(res=>this.id=res.get('id'));
+this.ac.params.subscribe(res=>this.id=res['id']);
   }
 
 

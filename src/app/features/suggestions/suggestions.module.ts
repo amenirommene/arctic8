@@ -4,20 +4,23 @@ import { CommonModule } from '@angular/common';
 import { SuggestionsRoutingModule } from './suggestions-routing.module';
 import { SuggestionsComponent } from './suggestions.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailsSuggestionComponent } from './details-suggestion/details-suggestion.component';
 import { ListSuggestionComponent } from './list-suggestion/list-suggestion.component';
+import { FormSuggestionComponent } from './form-suggestion/form-suggestion.component';
 
 
 @NgModule({
   declarations: [
     SuggestionsComponent,
      ListSuggestionComponent,
-     DetailsSuggestionComponent
+     DetailsSuggestionComponent,
+     FormSuggestionComponent
   ],
   imports: [
     CommonModule,
     SuggestionsRoutingModule,
+    ReactiveFormsModule,
     FormsModule //utiliser la directive ngModel
   ]
 })
