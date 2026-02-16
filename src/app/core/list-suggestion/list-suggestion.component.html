@@ -1,0 +1,49 @@
+
+<div class="list-suggestion-container">
+  <h1 class="page-title">{{titre}}</h1>
+
+  <div class="search-container">
+    <input
+      [(ngModel)]="search_term"
+      type="text"
+      class="search-input"
+      [placeholder]="textPlaceholder"
+  /> {{search_term}}
+  </div>
+
+  <div class="suggestions-list">
+    <div *ngFor="let s of suggestions" >
+      <div class="suggestion-card" *ngIf="s.title.toLocaleLowerCase().includes(search_term.toLocaleLowerCase()) || s.category.toLocaleLowerCase().includes(search_term.toLocaleLowerCase())">
+      <div class="card-header">
+        <h2 class="suggestion-title">{{s.title}}</h2>
+      </div>
+
+      <div class="card-meta">
+        <span class="category">{{s.category}}</span>
+        <span class="date">{{s.date | date: "dd MMM yyyy"}}</span>
+      </div>
+
+      <p class="suggestion-description">{{s.description}}</p>
+
+      <div class="card-footer">
+       <!--- <span class="status-badge" [class] = "s.status == 'acceptee' ? 'status-accepted' : s.status == 'refusee' ? 'status-refused' : 'status-pending' "> {{s.status}}
+        </span>----->
+        <span class="status-badge" [class] ="getClassCss(s.status)">{{s.status}}</span>
+
+        <div *ngIf="s.status!='refusee'"  class="action-buttons">
+          <button class="btn-like" (click)="like(s)">
+            <span class="icon"></span>
+           {{s.nbLikes}}
+          </button>
+          <button (click)="addToFavoris()" class="btn-favorite">
+            <span class="icon"></span>
+            Ajouter aux favoris
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
