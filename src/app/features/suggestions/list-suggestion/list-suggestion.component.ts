@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Suggestion } from '../../models/suggestion';
+import { Suggestion } from '../../../models/suggestion';
+
 
 @Component({
   selector: 'app-list-suggestion',
