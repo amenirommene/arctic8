@@ -14,7 +14,7 @@
 
    <small *ngIf="myForm.get('title')?.errors?.['required']">Titre obligatoire.</small>
 
-   <small *ngIf="myForm.get('title')?.errors?.['minlength']">Minimum 5 caractères.</small>
+   <small *ngIf="myForm.get('title')?.errors?.['minlength']">Minimum {{title.errors?.['minlength'].requiredLength}} caractères.</small>
 
    <small *ngIf="myForm.get('title')?.errors?.['pattern']">Doit commencer par une majuscule et contenir seulement des lettres.</small>
 
