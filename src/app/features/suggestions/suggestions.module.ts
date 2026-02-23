@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailsSuggestionComponent } from './details-suggestion/details-suggestion.component';
 import { ListSuggestionComponent } from './list-suggestion/list-suggestion.component';
 import { FormSuggestionComponent } from './form-suggestion/form-suggestion.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { FormSuggestionComponent } from './form-suggestion/form-suggestion.compo
     CommonModule,
     SuggestionsRoutingModule,
     ReactiveFormsModule,
+   // HttpClientModule,
     FormsModule //utiliser la directive ngModel
   ]
 })

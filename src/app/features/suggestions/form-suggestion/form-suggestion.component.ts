@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SuggestionService } from '../../../services/suggestion.service';
 
 @Component({
   selector: 'app-form-suggestion',
@@ -7,8 +9,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrl: './form-suggestion.component.css'
 })
 export class FormSuggestionComponent {
-
+ constructor(private fb:FormBuilder, private myRouter:Router,private sugService:SuggestionService){}
   myForm : FormGroup;
+  myForm2 : FormGroup;
   onSubmit(){
 
   }
@@ -20,6 +23,10 @@ description: new FormControl("",[Validators.required,Validators.minLength(30)]),
  category: new FormControl("",[Validators.required]),
  status: new FormControl("en attente"),
 date:new FormControl(new Date().toISOString().split("T")[0])
+    })
+
+    this.myForm2 = this.fb.group({
+      title:["",[Validators.required,Validators.minLength(10),Validators.pattern("^[A-Z][a-zA-Z]*$")]]
     })
   }
 
