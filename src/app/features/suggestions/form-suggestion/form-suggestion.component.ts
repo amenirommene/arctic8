@@ -11,7 +11,7 @@ export class FormSuggestionComponent {
   myForm : FormGroup;
   ngOnInit(){
     this.myForm=new FormGroup({
-      title : new FormControl("valeur par defaut",
+      title : new FormControl("",
         [Validators.required,Validators.minLength(3)]),
       description: new FormControl("",Validators.required)
     })
