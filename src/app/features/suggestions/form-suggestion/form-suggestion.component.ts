@@ -13,7 +13,13 @@ export class FormSuggestionComponent {
   myForm : FormGroup;
   myForm2 : FormGroup;
   onSubmit(){
-
+this.sugService.addSuggestion(this.myForm.value).subscribe(
+  {'next':res=>console.log(res),
+  'error':err=>console.log(err),
+  'complete':()=>{
+    this.myForm.reset;
+    this.myRouter.navigate(["/suggestions/suggestions"])}
+});
   }
   ngOnInit(){
     this.myForm=new FormGroup({

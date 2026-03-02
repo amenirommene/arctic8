@@ -41,9 +41,18 @@ date: new Date('2025-01-30'), status: 'en_attente',
 nbLikes:0
 },
 ];
-url : string =  "http://localhost:3000/suggestions";
+url : string =  "http://localhost:30000/suggestions";
   constructor(private _http:HttpClient) { }
   getSuggestionsList():Observable<Suggestion[]>{
     return this._http.get<Suggestion[]>(this.url);
+  }
+   addSuggestion(s:Suggestion):Observable<Suggestion>{
+    return this._http.post<Suggestion>(this.url,s);
+  }
+  updateSuggestion(s:Suggestion, id:number):Observable<Suggestion>{
+    return this._http.put<Suggestion>(this.url+"/"+id,s);
+  }
+  deleteSuggestion(s:Suggestion):Observable<Suggestion>{
+    return this._http.delete<Suggestion>(this.url+"/"+s.id);
   }
 }
